@@ -1,0 +1,24 @@
+<app-logobar></app-logobar>
+
+<ion-content class="bg" [fullscreen]="true">
+  <div id="container">
+    <h1>Register the entry</h1>
+    <ion-card style="margin-top: 10vh;">
+      <ion-button (click)="scanQR()">
+        Scan QR Code to Log-out
+      </ion-button>
+    </ion-card>
+    <div class="button">
+      <a class="textBtn" routerLinkActive="active" routerLink="/dashboardAdmin" class="btn btn-primary">Regresar</a>
+    </div>
+
+    <ion-toast
+      [isOpen]="isToast" 
+      [message]="toastData?.message" 
+      [position]="'bottom'" 
+      [color]="toastData?.color" 
+      [duration]="3000"
+      (didDismiss)="onToastDismiss()"
+    ></ion-toast>
+  </div>
+</ion-content>

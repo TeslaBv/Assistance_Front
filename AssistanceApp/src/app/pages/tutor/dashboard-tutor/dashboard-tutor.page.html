@@ -1,0 +1,26 @@
+<app-logobar></app-logobar>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div style="margin-top: 15vh; margin-bottom: 10vh; color: white;">
+      <h1>Welcome {{tutor}}</h1>
+      <p style="font-weight: bolder; font-size: small;">Current Date Time: </p>
+      <h3 style="font-weight: bolder; font-size: xx-large;">{{currentTime}}</h3>
+      <h3 style="font-weight: bolder; font-size: xx-large;">{{currentDate}}</h3>
+    </div>
+
+    <!-- Tarjetas de Información usando *ngFor -->
+    <div *ngFor="let child of children">
+      <ion-card class="info-card">
+        <ion-card-content>
+          <img src="{{child.image}}" alt="Profile Image" class="profile-img">
+          <h1 class="info">{{child.nombre}}</h1>
+          <h3 class="info">Edad: {{child.edad}}</h3>
+          <h3 class="info">Tutor: {{child.tutor}}</h3>
+          <h3 class="info">Status: {{child.status}}</h3>
+          <ion-button color="primary" style="color: white;" routerLink="/generateQR">Registrar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

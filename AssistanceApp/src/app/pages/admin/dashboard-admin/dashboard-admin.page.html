@@ -1,0 +1,36 @@
+<app-logobar></app-logobar>
+<ion-content class="bg" [fullscreen]="true">
+  
+  <div id="container">
+    
+    <div style="margin-top: 15vh; margin-bottom:10vh; color:white;">
+      
+      <h1>Welcome {{admin}}</h1>
+      <p style="font-weight: bolder; font-size: small;">Current Date Time: </p>
+      <h3 style="font-weight: bolder; font-size: xx-large;">{{currentTime}}</h3>
+      <h3 style="font-weight: bolder; font-size: xx-large;">{{currentDate}}</h3>
+    </div>
+    <div class="button">
+      
+      <a routerLinkActive="active" routerLink="/checkin" class="btn btn-primary">
+        <ion-icon style="margin-right: 15px;" name="log-in" class="iconHeart"></ion-icon>Check-In
+      </a>
+    </div>
+    <div class="button">
+      <a routerLinkActive="active" routerLink="/checkout" class="btn btn-primary">
+        <ion-icon style="margin-right: 10px;" name="log-out" class="iconHeart"></ion-icon>Check-Out
+      </a>
+    </div>
+    <div class="button">
+      <a routerLinkActive="active" routerLink="/register" class="btn btn-primary">
+        <ion-icon style="margin-right: 10px;" name="person-add" class="iconHeart"></ion-icon>Register
+      </a>
+    </div>
+    <div class="button">
+      <a routerLinkActive="active" routerLink="/home" class="btn btn-primary">
+        <ion-icon style="margin-right: 15px; color:aliceblue; font-size:xx-large;" name="log-out"></ion-icon>
+      </a>
+    </div>
+    
+  </div>
+</ion-content>

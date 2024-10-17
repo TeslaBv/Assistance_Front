@@ -1,0 +1,21 @@
+<app-logobar></app-logobar>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <!-- Primera card con la imagen -->
+    <ion-card class="image-card">
+      <img src="{{image}}" alt="Profile Image" class="profile-img">
+    </ion-card>
+
+    <!-- Segunda card con nombre, edad, tutor y botón de registrar -->
+    <ion-card  class="info-card">
+      <ion-card-content>
+        <h1 class="info">{{nombre}}</h1>
+        <h3 class="info">Edad: {{edad}}</h3>
+        <h3 class="info">Tutor: {{tutor}}</h3>
+        <h3 class="info">Persona autorizada: {{autorizado}}</h3>
+        <ion-button style="color: white; font-weight: bold;" expand="full" (click)="irACheck()">Registrar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,47 @@
+#container {
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #0D47A1, #64B5F6);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.info-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Cambiado a un porcentaje para mejor adaptación */
+    max-width: 400px; /* Un ancho máximo para que no se estire demasiado */
+    height: auto;
+    margin: 15px 0; /* Aumentado el margen superior e inferior para espaciado */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
+    padding: 20px; /* Agregado padding interno para espacio alrededor del contenido */
+    transition: transform 0.3s ease; /* Efecto de transición al pasar el ratón */
+}
+
+.info-card:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+.info {
+    margin-bottom: 1vh; /* Margen inferior */
+    color: #333; /* Color del texto más oscuro para mejor contraste */
+    font-size: 1.2em; /* Aumentado el tamaño del texto para mejor legibilidad */
+}
+
+.profile-img {
+    width: 100%; /* Ajustar para que se vea bien en pantallas pequeñas */
+    max-width: 180px; /* Limitar el tamaño de la imagen */
+    height: auto; /* Ajustar automáticamente la altura */
+     object-fit: cover; /* Mantiene la proporción de la imagen */
+    margin-bottom: 15px; /* Espacio inferior para separar la imagen del texto */
+}

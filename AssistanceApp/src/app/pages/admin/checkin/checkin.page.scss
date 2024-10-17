@@ -1,0 +1,37 @@
+#container {
+    
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to bottom, #0D47A1, #64B5F6); /* Degradado agregado */
+    width: 100vw;
+    height: 100vh;
+}
+
+.button {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+}
+
+.btn-primary {
+    width: 30vw;
+    height: 8vh;
+    background-color: #64B5F6; /* Color corregido */
+    border-radius: 100px;
+    color: white; /* Color del texto */
+    font-size: 1.2rem; /* Tamaño de la fuente */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer; /* Cursor pointer para que se vea clicable */
+}
+
+.btn-primary:hover {
+    background-color: #42A5F5; /* Efecto hover */
+}
