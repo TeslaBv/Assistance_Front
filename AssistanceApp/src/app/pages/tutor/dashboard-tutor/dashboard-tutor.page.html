@@ -2,7 +2,7 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <div style="margin-top: 15vh; margin-bottom: 10vh; color: white;">
+    <div style="margin-bottom: 5vh; color: white;">
       <h1>Welcome {{tutor}}</h1>
       <p style="font-weight: bolder; font-size: small;">Current Date Time: </p>
       <h3 style="font-weight: bolder; font-size: xx-large;">{{currentTime}}</h3>
@@ -11,7 +11,7 @@
 
     <!-- Tarjetas de Información usando *ngFor -->
     <div *ngFor="let child of children">
-      <ion-card class="info-card">
+      <ion-card class="info-card" (click)="goToChildInfo(child)">
         <ion-card-content>
           <img src="{{child.image}}" alt="Profile Image" class="profile-img">
           <h1 class="info">{{child.nombre}}</h1>

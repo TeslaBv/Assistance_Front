@@ -1,0 +1,48 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(to bottom, #0D47A1, #64B5F6);
+}
+
+
+.image-card {
+    background-color: #2389DF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 60vw;
+    height: 40vh;
+    /* Ajusta la altura del card */
+    border-radius: 0px 0px 20px 20px;
+}
+
+.profile-img {
+    width: auto;
+    /* Ajusta el tamaño de la imagen */
+    height: 30vh;
+    border-radius: 0%;
+    /* Si quieres que la imagen sea redonda */
+    object-fit: cover;
+    /* Asegura que la imagen mantenga su proporción */
+    
+}
+
+.info-card {
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 60vw;
+    height: 40vh;
+    background: #94CFFE;
+}
+
+.info{
+    margin-bottom: 3vh;
+    color: white;
+}

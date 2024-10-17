@@ -23,14 +23,18 @@ export class LoginPage implements OnInit {
   }
 
 
-  iniciarSesion() {
+  iniciarSesion(rol : number) {
     const usuario = this.usuarioInput.value;
     const password = this.passwordInput.value;
     
     console.log('Usuario:', usuario);
     console.log('Contraseña:', password);
 
-    this.router.navigate(['/dashboardAdmin']);
+    if (rol==0){
+      this.router.navigate(['/dashboardAdmin']);
+    }else{
+      this.router.navigate(['/dashboardTutor']);
+    }
   }
   regresar(){
     this.router.navigate(['/home']);

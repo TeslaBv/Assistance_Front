@@ -1,0 +1,34 @@
+<app-logobar></app-logobar>
+
+<ion-content class="bg" [fullscreen]="true">
+  <div id="container">
+    <div class="imagen">
+      <img src="assets/img/Assistance Logo.png" class="imagen" alt="">
+    </div>
+
+    <ion-card class="card">
+
+
+
+      <!-- Nombre -->
+      <ion-input #nombreInput errorText="Este campo es obligatorio" class="ion-margin-top input"
+        labelPlacement="floating" label="Name" type="text" placeholder="" fill="outline" required>
+      </ion-input>
+
+      <!-- Tutor -->
+      <ion-input #parentescoInput errorText="Este campo es obligatorio" class="ion-margin-top input"
+        labelPlacement="floating" label="Parentesco" type="text" placeholder="" fill="outline" required>
+      </ion-input>
+      <!-- Seleccionar foto -->
+      <div class="uploadImage">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+      </div>
+      <!-- Botón Registrar -->
+      <ion-button expand="full" type="submit" class="ion-margin-top btnLogin"
+        (click)="registrar()">Registrar</ion-button>
+
+      <!-- Botón Regresar -->
+      <ion-button expand="full" type="submit" class="ion-margin-top btnLogin" (click)="regresar()">Regresar</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

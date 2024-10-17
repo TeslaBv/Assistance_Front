@@ -46,5 +46,17 @@ export const routes: Routes = [
     path: 'generateQR',
     loadComponent: () => import('./pages/tutor/generate-qr/generate-qr.page').then( m => m.GenerateQRPage)
   },
+  {
+    path: 'infochild',
+    loadComponent: () => import('./pages/tutor/info-child/info-child.page').then( m => m.InfoChildPage)
+  },
+  {
+    path: 'authorized-persons',
+    loadComponent: () => import('./pages/tutor/authorized-persons/authorized-persons.page').then( m => m.AuthorizedPersonsPage)
+  },
+  {
+    path: 'addAuthPerson',
+    loadComponent: () => import('./pages/tutor/add-auth-person/add-auth-person.page').then( m => m.AddAuthPersonPage)
+  },
   
 ];

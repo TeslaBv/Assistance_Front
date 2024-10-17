@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton } from '@ionic/angular/standalone';
 import { LogobarComponent } from "../../../components/logobar/logobar.component";
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 
 interface Child {
   nombre: string;
@@ -51,7 +51,7 @@ export class DashboardTutorPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     // Actualizar la hora cada segundo
@@ -59,6 +59,12 @@ export class DashboardTutorPage implements OnInit {
       this.currentTime = this.getCurrentTime();
       this.currentDate = this.getCurrentDate();
     }, 1000);
+  }
+
+  // Método para redirigir a la página de detalles del niño
+  goToChildInfo(child: Child) {
+    // Puedes pasar el nombre del niño o un id como parámetro
+    this.router.navigate(['/infochild'], { queryParams: { nombre: child.nombre, edad:child.edad, tutor: child.tutor, image: child.image } });
   }
 
   // Método para obtener la fecha y hora formateada

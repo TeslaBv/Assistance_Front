@@ -4,10 +4,10 @@
   <div id="container">
     <div style="margin-top: 15vh; margin-bottom: 10vh; color: white;">
       <h1>QR Code</h1>
-      <qrcode [qrdata]="'Azul Jackson Rivera'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-      <ion-card class="info-card">
-        
-      </ion-card>
+      <qrcode [qrdata]="person.nombre" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      <ion-button style="width: 50%; color: white;" expand="full" class="ion-margin-top btnLogin centered-btn" (click)="regresar()">
+        Regresar
+      </ion-button>
     </div>
   </div>
 </ion-content>

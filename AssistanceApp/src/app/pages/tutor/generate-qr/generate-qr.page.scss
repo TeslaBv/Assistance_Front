@@ -8,4 +8,15 @@
     background: linear-gradient(to bottom, #0D47A1, #64B5F6); /* Degradado agregado */
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.centered-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Cambiar color del texto a blanco */
 }

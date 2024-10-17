@@ -4,8 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton } from '@ionic/angular/standalone';
 import { QRCodeModule } from 'angularx-qrcode';
 import { LogobarComponent } from "../../../components/logobar/logobar.component";
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
+interface AuthPerson {
+  nombre: string;
+}
 @Component({
   selector: 'app-generate-qr',
   templateUrl: './generate-qr.page.html',
@@ -14,10 +17,20 @@ import { RouterLink } from '@angular/router';
   imports: [IonButton, IonCardContent, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, QRCodeModule, LogobarComponent, RouterLink]
 })
 export class GenerateQRPage implements OnInit {
-
-  constructor() { }
+  person: AuthPerson = {
+    nombre: '',
+  };
+  constructor(private route: ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
+    // Recuperar los parámetros de la URL
+    this.route.queryParams.subscribe(params => {
+      this.person.nombre = params['nombre'];
+    });
+  }
+
+  regresar(){
+    this.router.navigate(['/dashboardTutor']);
   }
 
 }

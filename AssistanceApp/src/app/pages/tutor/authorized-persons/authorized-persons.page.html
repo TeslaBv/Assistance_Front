@@ -1,0 +1,21 @@
+<app-logobar></app-logobar>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <h1>Authorized Persons</h1>
+    <a routerLinkActive="active" routerLink="/addAuthPerson" class="btn btn-primary">
+      <ion-icon style="margin-right: 15px;" name="person-add" class="iconHeart"></ion-icon>
+    </a>
+    <!-- Tarjetas de Información usando *ngFor -->
+    <div *ngFor="let person of authPersons">
+      <ion-card class="info-card" (click)="generateQR(person)">
+        <ion-card-content>
+          <img src="{{person.image}}" alt="Profile Image" class="profile-img">
+          <h1 class="info">{{person.nombre}}</h1>
+          <h3 class="info">Parentesco: {{person.parentesco}}</h3>
+          <h2 style="color: blue;">Generar QR</h2>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

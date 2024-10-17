@@ -10,7 +10,8 @@
       <ion-input #passwordInput errorText="Este campo es obligatorio" class="ion-margin-top input"
         labelPlacement="floating" label="Contraseña" type="password" placeholder="password" fill="outline" required>
       </ion-input>
-      <ion-button expand="full" type="submit" class="ion-margin-top" class="btnLogin" (click)="iniciarSesion()">Enviar</ion-button>
+      <ion-button expand="full" type="submit" class="ion-margin-top" class="btnLogin" (click)="iniciarSesion(0)">Admin</ion-button>
+      <ion-button expand="full" type="submit" class="ion-margin-top" class="btnLogin" (click)="iniciarSesion(1)">Tutor</ion-button>
       
         <ion-button expand="full" type="submit" class="ion-margin-top" class="btnLogin" (click)="regresar()">Regresar</ion-button>
       
