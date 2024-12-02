@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, IonIcon } from '@ionic/angular/standalone';
 import { LogobarComponent } from 'src/app/components/logobar/logobar.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { logIn, logOut, personAdd } from 'ionicons/icons';
 
@@ -19,7 +19,7 @@ export class DashboardAdminPage implements OnInit {
   admin: string = 'Admin'; // Nombre del administrador
   currentDate: string = ''; // Variable para la hora y fecha actual
   currentTime: string = '';
-  constructor() {
+  constructor( private router : Router) {
     addIcons({logIn,logOut,personAdd});
    }
 
@@ -54,6 +54,15 @@ export class DashboardAdminPage implements OnInit {
 
 
     return ` ${time}`;
+  }
+
+  // Método para cerrar sesión
+  logout() {
+    // Eliminar el token del sessionStorage
+    sessionStorage.removeItem('token');
+
+    // Redirigir al usuario a la página de inicio o login
+    this.router.navigate(['/home']);
   }
 
 

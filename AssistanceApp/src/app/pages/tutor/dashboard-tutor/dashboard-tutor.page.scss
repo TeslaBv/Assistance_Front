@@ -6,6 +6,7 @@
     bottom: 0;
     background: linear-gradient(to bottom, #0D47A1, #64B5F6);
     width: 100vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +20,7 @@
     justify-content: center;
     align-items: center;
     width: 100%; /* Cambiado a un porcentaje para mejor adaptación */
-    max-width: 400px; /* Un ancho máximo para que no se estire demasiado */
+    min-width: 90vw; /* Un ancho máximo para que no se estire demasiado */
     height: auto;
     margin: 15px 0; /* Aumentado el margen superior e inferior para espaciado */
     background: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */

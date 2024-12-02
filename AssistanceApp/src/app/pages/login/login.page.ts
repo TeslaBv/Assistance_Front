@@ -73,7 +73,6 @@ export class LoginPage implements OnInit {
         next: (resp: any) => {
           console.log(resp);
           if (resp) {
-            //Agregar el token al session storage
             sessionStorage.setItem('token', resp.access_token);
             this.router.navigate(['/dashboardAdmin']); // Redirigir al dashboard de Admin
           } else {
@@ -90,6 +89,7 @@ export class LoginPage implements OnInit {
         next: (resp: any) => {
           console.log(resp);
           if (resp) {
+            sessionStorage.setItem('token', resp.access_token);
             this.router.navigate(['/dashboardTutor']); // Redirigir al dashboard de Tutor
           } else {
             this.errorMensaje = resp.message || 'Correo o contraseña incorrectos.';

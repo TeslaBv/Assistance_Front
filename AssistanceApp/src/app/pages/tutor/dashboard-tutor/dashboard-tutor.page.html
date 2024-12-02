@@ -10,13 +10,13 @@
     </div>
 
     <!-- Tarjetas de Información usando *ngFor -->
-    <div *ngFor="let child of children">
+    <div *ngFor="let child of estudiantes">
       <ion-card class="info-card" (click)="goToChildInfo(child)">
         <ion-card-content>
-          <img src="{{child.image}}" alt="Profile Image" class="profile-img">
-          <h1 class="info">{{child.nombre}}</h1>
-          <h3 class="info">Edad: {{child.edad}}</h3>
-          <h3 class="info">Tutor: {{child.tutor}}</h3>
+          <img [src]="'https://bakendchecador.onrender.com/estudiantes/' + child.id_estudiante + '/foto.jpg'" alt="{{child.ruta_foto}}" class="profile-img">
+          <h1 class="info">{{child.nombre + ' ' + child.apellidoP + ' ' + child.apellidoM}}</h1>
+          <h3 class="info">Edad: {{child.edad + ' años'}}</h3>
+          <h3 class="info">Tutor: {{child.tutor.nombre}}</h3>
           <h3 class="info">Status: {{child.status}}</h3>
           <ion-button color="primary" style="color: white;" routerLink="/generateQR">Registrar</ion-button>
         </ion-card-content>

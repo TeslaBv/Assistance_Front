@@ -11,6 +11,6 @@ export class AuthService {
     return this._http.post('https://bakendchecador.onrender.com/api/v1/auth/login',user);
   }
   loginTutor(user : any){
-    return this._http.post('https://bakendchecador.onrender.com/api/v1/auth/login',user);
+    return this._http.post('https://bakendchecador.onrender.com/api/v1/auth/login-tutores',user);
   }
 }
