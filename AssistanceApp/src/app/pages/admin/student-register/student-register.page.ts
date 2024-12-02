@@ -1,17 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonSegment, IonLabel, IonSegmentButton, IonButton, IonIcon } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonCard,
+  IonSegment,
+  IonLabel,
+  IonSegmentButton,
+  IonButton,
+  IonIcon
+} from '@ionic/angular/standalone';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LogobarComponent } from "../../../components/logobar/logobar.component";
 import { AdminService } from 'src/app/service/admin.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-student-register',
   templateUrl: './student-register.page.html',
   styleUrls: ['./student-register.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonSegmentButton, IonLabel, IonSegment, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, LogobarComponent, ReactiveFormsModule]
+  imports: [
+    IonIcon,
+    IonButton,
+    IonSegmentButton,
+    IonLabel,
+    IonSegment,
+    IonCard,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    LogobarComponent,
+    ReactiveFormsModule
+  ]
 })
 export class StudentRegisterPage implements OnInit {
   studentForm: FormGroup;
@@ -68,23 +95,33 @@ export class StudentRegisterPage implements OnInit {
     return this.studentForm.get('direccion');
   }
 
-  // Método para registrar estudiante con imagen
   registerStudent() {
     if (this.studentForm.valid && this.selectedImage) {
       console.log('Formulario válido', this.studentForm.value);
   
-      // Crear un objeto FormData
       const formData = new FormData();
   
       // Agregar los campos del formulario a FormData
       Object.keys(this.studentForm.value).forEach((key) => {
-        formData.append(key, this.studentForm.value[key]);
+        const value = this.studentForm.value[key];
+        if (value !== null && value !== undefined) {
+          formData.append(key, String(value)); // Convertir todos los valores a string
+        }
       });
   
       // Agregar la imagen seleccionada
-      formData.append('foto', this.selectedImage);
+      if (this.selectedImage) {
+        formData.append('foto', this.selectedImage);
+      } else {
+        console.error('No se seleccionó ninguna imagen.');
+        this.errorMensaje = 'Por favor, seleccione una imagen.';
+        return;
+      }
   
-      // Enviar al backend
+      formData.forEach((value, key) => {
+        console.log(`${key}:`, value);
+      });
+      
       this.adminS.addStudent(formData).subscribe({
         next: (response) => {
           console.log('Estudiante registrado:', response);
@@ -92,6 +129,7 @@ export class StudentRegisterPage implements OnInit {
         },
         error: (err) => {
           console.error('Error al registrar estudiante:', err);
+          this.errorMensaje = 'Error al registrar el estudiante. Intente nuevamente.';
         },
       });
     } else {
@@ -100,12 +138,19 @@ export class StudentRegisterPage implements OnInit {
         : 'Por favor, seleccione una imagen.';
     }
   }
+  
+  
 
   onImageSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      this.selectedImage = file;
-      console.log('Imagen seleccionada:', this.selectedImage);
+      if (file.type === 'image/jpeg' || file.type === 'image/png') {
+        this.selectedImage = file;
+        console.log('Imagen seleccionada:', this.selectedImage);
+      } else {
+        console.error('Formato de archivo no válido. Solo se permiten JPG y PNG.');
+        this.errorMensaje = 'Formato de imagen no válido. Seleccione un archivo JPG o PNG.';
+      }
     }
   }
 
