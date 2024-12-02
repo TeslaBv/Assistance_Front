@@ -1,0 +1,140 @@
+/* Contenedor principal */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #1565C0, #81D4FA);
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    /* Espaciado interno */
+    box-sizing: border-box;
+    overflow-y: auto;
+    /* Habilita desplazamiento vertical */
+}
+
+/* Imagen del logo */
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Card principal */
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    /* Ancho máximo para evitar estiramiento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Lista de tutores */
+.tutor-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.tutor-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Información del tutor */
+.tutor-info {
+    text-align: left;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+}
+
+.tutor-info h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #0D47A1;
+}
+
+.tutor-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Mensaje de no tutores */
+.no-tutores {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Botón de regresar */
+.button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    /* Mantiene el botón alineado a la izquierda */
+    width: 100%;
+}
+
+.button button {
+    margin-left: 20px;
+}
+
+/* Botones principales */
+.btn-primary {
+    width: 22vw;
+    max-width: 150px;
+    /* Limita el ancho del botón */
+    height: 5vh;
+    background-color: #64b4f649;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #42A5F5;
+    transform: scale(1.05);
+    /* Efecto hover con agrandamiento */
+}
+
+/* Grupo de botones en cada tutor */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilo responsivo */
+@media screen and (max-width: 768px) {
+    .btn-primary {
+        width: 40vw;
+        /* Botones más grandes en pantallas pequeñas */
+        font-size: 0.9rem;
+    }
+
+    .tutor-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .tutor-info p {
+        font-size: 0.9rem;
+    }
+}

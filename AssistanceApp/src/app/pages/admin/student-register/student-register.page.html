@@ -1,0 +1,80 @@
+<ion-content class="bg" [fullscreen]="true">
+  <div id="container">
+    <div class="imagen">
+      <img src="assets/img/Assistance Logo.png" class="imagen" alt="Assistance Logo">
+    </div>
+
+    <ion-card class="card">
+      <!-- Titulo del formulario Registrar Estudiante -->
+      <h2 class="ion-text-center" style="color: white; font-weight: bolder;">Registrar Estudiante</h2>
+      
+      <!-- Formulario de registro -->
+      <form [formGroup]="studentForm" (ngSubmit)="registerStudent()">
+        <ion-button expand="full" (click)="fileInput.click()">
+          <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+          <ion-label slot="end">Seleccionar imagen</ion-label>
+        </ion-button>
+        <input class="ion-hide" #fileInput type="file" accept="image/png, image/jpeg" (change)="onImageSelected($event)">
+        <!-- Campo Nombre -->
+        <div class="form-group">
+          <label for="nombre" class="ion-text-left" style="color: white; font-weight: bolder;">Nombre</label>
+          <input id="nombre" type="text" formControlName="nombre" class="input" placeholder="Nombre" />
+          <div *ngIf="nombre?.invalid && nombre?.touched" class="error-message">
+            {{ getErrorMessage('nombre') }}
+          </div>
+        </div>
+
+        <!-- Campo Apellido Paterno -->
+        <div class="form-group">
+          <label for="apellidoP" class="ion-text-left" style="color: white; font-weight: bolder;">Apellido Paterno</label>
+          <input id="apellidoP" type="text" formControlName="apellidoP" class="input" placeholder="Apellido Paterno" />
+          <div *ngIf="apellidoP?.invalid && apellidoP?.touched" class="error-message">
+            {{ getErrorMessage('apellidoP') }}
+          </div>
+        </div>
+
+        <!-- Campo Apellido Materno -->
+        <div class="form-group">
+          <label for="apellidoM" class="ion-text-left" style="color: white; font-weight: bolder;">Apellido Materno</label>
+          <input id="apellidoM" type="text" formControlName="apellidoM" class="input" placeholder="Apellido Materno" />
+          <div *ngIf="apellidoM?.invalid && apellidoM?.touched" class="error-message">
+            {{ getErrorMessage('apellidoM') }}
+          </div>
+        </div>
+
+        <!-- Campo Fecha de Nacimiento -->
+        <div class="form-group">
+          <label for="fecha_nacimiento" class="ion-text-left" style="color: white; font-weight: bolder;">Fecha de Nacimiento</label>
+          <input id="fecha_nacimiento" type="date" formControlName="fecha_nacimiento" class="input" />
+          <div *ngIf="fecha_nacimiento?.invalid && fecha_nacimiento?.touched" class="error-message">
+            {{ getErrorMessage('fecha_nacimiento') }}
+          </div>
+        </div>
+
+        <!-- Campo Dirección -->
+        <div class="form-group">
+          <label for="direccion" class="ion-text-left" style="color: white; font-weight: bolder;">Dirección</label>
+          <input id="direccion" type="text" formControlName="direccion" class="input" placeholder="Dirección" />
+          <div *ngIf="direccion?.invalid && direccion?.touched" class="error-message">
+            {{ getErrorMessage('direccion') }}
+          </div>
+        </div>
+
+        <!-- Botón Registrar -->
+        <ion-button expand="full" class="ion-margin-top btnLogin" type="submit" [disabled]="studentForm.invalid">
+          Registrar Estudiante
+        </ion-button>
+      </form>
+
+      <!-- Botón Regresar -->
+      <ion-button expand="full" class="ion-margin-top btnRegresar" (click)="regresar()">
+        Regresar
+      </ion-button>
+
+      <!-- Mensaje de error general -->
+      <div *ngIf="errorMensaje" class="error-message">
+        {{ errorMensaje }}
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

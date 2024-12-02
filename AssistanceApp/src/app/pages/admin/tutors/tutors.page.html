@@ -1,0 +1,46 @@
+<app-logobar></app-logobar>
+<ion-content class="bg" [fullscreen]="true">
+  <div id="container">
+    <div class="button">
+      <button class="btn-primary" (click)="regresar()">
+        Regresar
+      </button>
+    </div>
+
+    <div class="imagen">
+      <img src="assets/img/Assistance Logo.png" alt="Assistance Logo">
+    </div>
+
+    <ion-card class="card">
+      <ion-segment value="Tutores">
+        <ion-segment-button value="Tutores">
+          <ion-label>Tutores</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div *ngIf="tutores && tutores.length > 0; else noTutores">
+        <div *ngFor="let tutor of tutores" class="tutor-item">
+          <div class="tutor-info">
+            <h2>{{ tutor.nombre }}</h2>
+            <p>{{ tutor.correo }}</p>
+            <p>{{ tutor.activo ? 'Activo' : 'Inactivo' }}</p>
+          </div>
+          <div class="button-group">
+            <button class="btn-primary" (click)="addStudent(tutor.id_tutor)">
+              Add Student
+            </button>
+            <button class="btn-primary" (click)="viewStudents(tutor.id_tutor)">
+              Students
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noTutores>
+        <div class="no-tutores">
+          <p>No hay tutores registrados.</p>
+        </div>
+      </ng-template>
+    </ion-card>
+  </div>
+</ion-content>

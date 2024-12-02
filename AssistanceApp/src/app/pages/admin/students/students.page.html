@@ -1,0 +1,52 @@
+<app-logobar></app-logobar>
+<ion-content class="bg" [fullscreen]="true">
+  <div id="container">
+    <!-- Botón de regresar -->
+    <div class="button">
+      <button class="btn-primary" (click)="regresar()">
+        Regresar
+      </button>
+    </div>
+    <div class="imagen">
+      <img src="assets/img/Assistance Logo.png" alt="Assistance Logo">
+    </div>
+
+    <!-- Card para mostrar los estudiantes -->
+    <ion-card class="card">
+      <ion-segment value="Estudiantes">
+        <ion-segment-button value="Estudiantes">
+          <ion-label>Estudiantes</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div *ngIf="students && students.length > 0; else noStudents">
+        <div *ngFor="let student of students" class="student-item">
+          <!-- Información del estudiante -->
+          <div class="student-info">
+            <h2>{{ student.nombre }} {{ student.apellidoP }} {{ student.apellidoM }}</h2>
+            <p><strong>Fecha de Nacimiento:</strong> {{ student.fecha_nacimiento }}</p>
+            <p><strong>Dirección:</strong> {{ student.direccion }}</p>
+            <p><strong>Tutor:</strong> {{ student.tutor.nombre }} ({{ student.tutor.correo }})</p>
+            <p><strong>Estado Escolar:</strong> {{ student.estado_escolar?.estado || 'No disponible' }}</p>
+
+            <div *ngIf="student.responsables.length > 0">
+              <h3>Responsables:</h3>
+              <ul>
+                <li *ngFor="let responsable of student.responsables">
+                  {{ responsable.nombre }} - {{ responsable.parentesco }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plantilla en caso de que no haya estudiantes -->
+      <ng-template #noStudents>
+        <div class="no-students">
+          <p>No hay estudiantes registrados.</p>
+        </div>
+      </ng-template>
+    </ion-card>
+  </div>
+</ion-content>

@@ -58,5 +58,17 @@ export const routes: Routes = [
     path: 'addAuthPerson',
     loadComponent: () => import('./pages/tutor/add-auth-person/add-auth-person.page').then( m => m.AddAuthPersonPage)
   },
+  {
+    path: 'tutors',
+    loadComponent: () => import('./pages/admin/tutors/tutors.page').then( m => m.TutorsPage)
+  },
+  {
+    path: 'student-register/:id',
+    loadComponent: () => import('./pages/admin/student-register/student-register.page').then( m => m.StudentRegisterPage)
+  },
+  {
+    path: 'students/:id',
+    loadComponent: () => import('./pages/admin/students/students.page').then( m => m.StudentsPage)
+  },
   
 ];

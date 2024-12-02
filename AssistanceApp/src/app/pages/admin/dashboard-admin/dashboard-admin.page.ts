@@ -20,7 +20,7 @@ export class DashboardAdminPage implements OnInit {
   currentDate: string = ''; // Variable para la hora y fecha actual
   currentTime: string = '';
   constructor() {
-    addIcons({logIn,logOut,personAdd})
+    addIcons({logIn,logOut,personAdd});
    }
 
   ngOnInit() {
