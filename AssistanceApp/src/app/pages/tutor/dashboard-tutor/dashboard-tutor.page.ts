@@ -6,6 +6,7 @@ import { LogobarComponent } from "../../../components/logobar/logobar.component"
 import { RouterLink, Router } from '@angular/router';
 import { TutorService } from 'src/app/service/tutor.service';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from 'src/environments/environment';
 
 
 interface Child {
@@ -33,7 +34,7 @@ export class DashboardTutorPage implements OnInit {
   estudiantes: any[] = [];
   tutorId: number | null = null;
   imagen : string = '';
-
+  api = environment.api;
 
   constructor(private router: Router, private tutorS: TutorService) { }
 

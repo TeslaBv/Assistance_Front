@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  private apiTutors = 'https://bakendchecador.onrender.com/api/v1/tutores';
-  private apiUrl = 'https://bakendchecador.onrender.com/api/v1/';
-  private apiStudents = 'https://bakendchecador.onrender.com/api/v1/estudiantes';
+  private apiTutors = environment.api+'/api/v1/tutores';
+  private apiUrl = environment.api+'/api/v1/';
+  private apiStudents = environment.api+'/api/v1/estudiantes';
   constructor(private _http: HttpClient) { }
 
   addTutor(tutor: any) {
